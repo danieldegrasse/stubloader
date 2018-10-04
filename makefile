@@ -1,7 +1,7 @@
 ARCH            = $(shell uname -m | sed s,i[3456789]86,ia32,)
 
 OBJS            = main.o
-TARGET          = Chainload.efi
+TARGET          = stubloader.efi
 
 EFIINC          = /usr/include/efi
 EFIINCS         = -I$(EFIINC) -I$(EFIINC)/$(ARCH) -I$(EFIINC)/protocol
@@ -28,7 +28,7 @@ Chainload.so : $(OBJS)
 	objcopy -j .text -j .sdata -j .data -j .dynamic \
 		-j .dynsym  -j .rel -j .rela -j .reloc \
 		--target=efi-app-$(ARCH) $^ $@
-install : Chainload.efi
+install : stubloader.efi
 	cp $^ /boot
 
 clean :

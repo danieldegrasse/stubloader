@@ -1,0 +1,3 @@
+This is a very basic implementation of a EFI image chainloader, the most useful purpose for it is as a loader for EFISTUB linux kernels,
+when using a firmware implementation that fails to pass boot arguments to an efi image.
+

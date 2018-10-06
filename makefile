@@ -21,7 +21,7 @@ LDFLAGS         = -nostdlib -znocombreloc -T $(EFI_LDS) -shared \
 
 all : $(TARGET)
 
-Chainload.so : $(OBJS)
+stubloader.so : $(OBJS)
 	ld $(LDFLAGS) $(OBJS) -o $@ -lefi -lgnuefi
 
 %.efi : %.so
